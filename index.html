@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Diffusion </title>
+
+<head>
+
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#f14c00">
+    
+    <meta name="description" content="Personal webpage">
+    <meta name="author" content="Franz Goerlich">
+    <meta property="og:title" content="About - Franz Goerlich">
+    <meta property="og:description" content="Personal webpage">
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="./main.css">
+    
+    <link rel="icon" href="festinalente.svg" type="image/svg+xml">
+        
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+</head>
+
+
+<body>
+<div class="container">
+<header><a href="https://n.ethz.ch/~fgoerlich/">Franz</a></header>
+<nav class="site">
+<a href="https://n.ethz.ch/~fgoerlich/misc.html">Misc</a>
+<a href="https://n.ethz.ch/~fgoerlich/">About</a>
+
+
+
+</nav>
+<article>
+    <div class="flex justify-content-center">
+        <h1>Diffusion</h1>
+        <canvas id="canvas"></canvas>
+        <div class="flex justify-content-center">
+            <button id="start">Step</button>
+            <button id="autoStart">Auto Diffuse</button>
+            <input id="ballCnt" type="range" min="1" max="100">Add Cnt</input>
+            <input id="speedCnt" type="range" min="50" max="1000">Speed</input>
+        </div>
+
+    </div>
+
+    <div>
+        <h2>From discrete to continuous space</h2>
+        <canvas id="canvas2d"></canvas>
+        <div class="flex justify-content-center">
+            <button id="start2d">Step</button>
+        </div>
+        <div id="eq1"></div>
+        <div id="eq2"></div>
+        <div id="eq3"></div>
+        <div id="eq4"></div>
+        <div id="eq5"></div>
+        <div id="eq6"></div>
+        <div id="eq7"></div>
+        <div id="eq8"></div>
+    </div>
+    <div>
+        <h2>Going three-dimensional</h2>
+
+        <h2>Mass, Momentum, Energy</h2>
+        <div id="eq10"></div>
+        <div id="eq11"></div>
+        <div id="eq12"></div>
+    </div>
+
+<div>
+
+
+</div>
+<div>
+
+</div>
+
+</article><div class="display">
+
+
+</div>
+</div>
+
+
+</body>
+<script type="module" src="./diffusion.js"></script>
+<script type="module" src="./equations.js"></script>
+</html>
