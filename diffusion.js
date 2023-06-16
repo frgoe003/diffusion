@@ -7,6 +7,7 @@ const btn2 = document.getElementById('start2d');
 const ballCnt = document.getElementById('ballCnt');
 const autoStart = document.getElementById('autoStart');
 const speedCnt = document.getElementById('speedCnt');
+const reset1 = document.getElementById('reset1');
 
 canvas.width = 500;
 canvas.height = 500;
@@ -15,7 +16,7 @@ canvas2d.height = 50;
 
 
 const g = new Grid(canvas.height, canvas.width, 20, canvas, false);
-const g2 = new Grid(canvas.height, canvas.width, 50, canvas2d, true);
+const g2 = new Grid(canvas2d.height, canvas2d.width, 50, canvas2d, true);
 let speed = 1000;
 
 function move(grid){
@@ -38,27 +39,33 @@ function move(grid){
 }
 
 
-let started = false;
-function diffuseAuto(){
-    const mainLoopId = setInterval(function(){
-        move();
-    }, speed);
+let started1 = false;
+
+function autoDiffuse(){
+    if (!started1){
+        console.log("start")
+        var myInterval = setInterval(() => move(g), speed);
+        started1 = true;
+    }
+    else{
+        clearInterval(myInterval);
+        started1 = false;
+    }
 }
 
 autoStart.addEventListener('click', function(){
-    if (!started){
-        diffuseAuto();
-        started = true;
-    }
-    else{
-        clearInterval(mainLoopId);
-        started = false;
-    }
+    autoDiffuse()
 })
+
 speedCnt.addEventListener('change', function(){
-    speed = parseInt(speedCnt.value);
-    clearInterval(mainLoopId);
-    diffuseAuto();
+    speed = parseInt(1000 - speedCnt.value);
+    g.save_state();
+    g.reset();
+    clearInterval(myInterval);
+    g.restore();
+    autoDiffuse();
+    console.log(speed)
+    started1 = false;
 })
 
 ballCnt.addEventListener('change', function(){
@@ -71,4 +78,8 @@ btn.addEventListener('click', function(){
 
 btn2.addEventListener('click', function(){
     move(g2);
+})
+
+reset1.addEventListener('click', function(){
+    g.reset();
 })

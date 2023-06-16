@@ -38,7 +38,7 @@
 
 <body>
 <div class="container">
-<header><a href="https://n.ethz.ch/~fgoerlich/">Franz</a></header>
+<header><a href="https://n.ethz.ch/~fgoerlich/">Diffusion</a></header>
 <nav class="site">
 <a href="https://n.ethz.ch/~fgoerlich/misc.html">Misc</a>
 <a href="https://n.ethz.ch/~fgoerlich/">About</a>
@@ -49,34 +49,49 @@
 <article>
     <div class="flex justify-content-center">
         <h1>Diffusion</h1>
-        <canvas id="canvas"></canvas>
-        <div class="flex justify-content-center">
+        <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="d-flex justify-content-center">
             <button id="start">Step</button>
             <button id="autoStart">Auto Diffuse</button>
+            <button id="reset1">Reset</button>
             <input id="ballCnt" type="range" min="1" max="100">Add Cnt</input>
-            <input id="speedCnt" type="range" min="50" max="1000">Speed</input>
+            <input id="speedCnt" type="range" min="1" max="999">Speed</input>
         </div>
 
     </div>
 
     <div>
         <h2>From discrete to continuous space</h2>
-        <canvas id="canvas2d"></canvas>
-        <div class="flex justify-content-center">
-            <button id="start2d">Step</button>
+
+        To get a feeling of the statistical nature of diffusion, we can simulate it in a 1D discrete space. 
+        In each step, each particle has a 50% chance to move to the left or right. We can see that the particles spread out over time. 
+
+        If we define a density function \(\rho(x,t))\, we can write the diffusion equation as 
+
+
+        <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+                <canvas id="canvas2d"></canvas>
+            </div>
+            <div class="flex justify-content-center">
+                <button id="start2d">Step</button>
+            </div>
         </div>
         <div id="eq1"></div>
         <div id="eq2"></div>
         <div id="eq3"></div>
-        <div id="eq4"></div>
-        <div id="eq5"></div>
+        
         <div id="eq6"></div>
         <div id="eq7"></div>
+        <div id="eq4"></div>
+        <div id="eq5"></div>
         <div id="eq8"></div>
     </div>
     <div>
         <h2>Going three-dimensional</h2>
-
+        <div id="eq13"></div>
         <h2>Mass, Momentum, Energy</h2>
         <div id="eq10"></div>
         <div id="eq11"></div>

@@ -46,22 +46,34 @@ class Ball {
       this.context = canvasElement.getContext('2d');
       this.ballCntAdd = 1;
       this.textDraw = textDraw;
+      this.state = null;
 
       this.cols = Math.round(this.gridWidth / this.cellSize);
       this.rows = Math.round(this.gridHeight / this.cellSize);
       this._grid = [];
-  
       this.initGrid();
       this.drawCells();
     }
 
     onCellClick(gridCell) {
-        this.addBall(gridCell, this.ballCntAdd, false);
+      this.addBall(gridCell, this.ballCntAdd, false);
     }
   
     get(row, col) {
       return this._grid[row][col];
+
     }
+    save_state(){
+        this.state = this._grid;
+    }
+
+    restore(){
+        if (this.state){
+          this._grid = this.state;
+          this.drawCells();
+        }
+
+      }
   
     set(row, col, gridCell, redrawCell = false) {
       const oldGridCell = this._grid[row][col];
@@ -207,5 +219,12 @@ class Ball {
           return null;
         }
       }
+
+      reset(){
+        this._grid = [];
+        this.initGrid();
+        this.drawCells();
+      }
+
     }
     
