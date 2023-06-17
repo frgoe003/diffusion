@@ -38,13 +38,13 @@ class Ball {
 }
   
   export class Grid {
-    constructor(gridHeight, gridWidth, cellSize, canvasElement, textDraw = true) {
+    constructor(gridHeight, gridWidth, cellSize, canvasElement, textDraw = true, initCnt = 1) {
       this.gridHeight = gridHeight; 
       this.gridWidth = gridWidth; 
       this.cellSize = cellSize; // Size of individual cell in pixel
       this.canvasElement = canvasElement;
       this.context = canvasElement.getContext('2d');
-      this.ballCntAdd = 1;
+      this.ballCntAdd = initCnt;
       this.textDraw = textDraw;
       this.state = null;
 
@@ -213,7 +213,7 @@ class Ball {
       canvasToGrid(e) {
         let x = Math.floor(e.x / this.cellSize);
         let y = Math.floor(e.y / this.cellSize);
-        if (x >= 0 && y >= 0 && x < this.rows && y < this.cols) {
+        if (x >= 0 && y >= 0 && x < this.cols && y < this.rows) {
           return { row: y, col: x };
         } else {
           return null;
@@ -225,6 +225,5 @@ class Ball {
         this.initGrid();
         this.drawCells();
       }
-
     }
     

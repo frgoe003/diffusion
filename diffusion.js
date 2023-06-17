@@ -8,6 +8,7 @@ const ballCnt = document.getElementById('ballCnt');
 const autoStart = document.getElementById('autoStart');
 const speedCnt = document.getElementById('speedCnt');
 const reset1 = document.getElementById('reset1');
+const reset2 = document.getElementById('reset2');
 
 canvas.width = 500;
 canvas.height = 500;
@@ -15,7 +16,7 @@ canvas2d.width = 500;
 canvas2d.height = 50;
 
 
-const g = new Grid(canvas.height, canvas.width, 20, canvas, false);
+const g = new Grid(canvas.height, canvas.width, 20, canvas, false, 20);
 const g2 = new Grid(canvas2d.height, canvas2d.width, 50, canvas2d, true);
 let speed = 1000;
 
@@ -61,7 +62,6 @@ speedCnt.addEventListener('change', function(){
     speed = parseInt(1000 - speedCnt.value);
     g.save_state();
     g.reset();
-    clearInterval(myInterval);
     g.restore();
     autoDiffuse();
     console.log(speed)
@@ -70,6 +70,7 @@ speedCnt.addEventListener('change', function(){
 
 ballCnt.addEventListener('change', function(){
     g.ballCntAdd = parseInt(ballCnt.value);
+    console.log(g.ballCntAdd)
 })
 
 btn.addEventListener('click', function(){
@@ -82,4 +83,7 @@ btn2.addEventListener('click', function(){
 
 reset1.addEventListener('click', function(){
     g.reset();
+})
+reset2.addEventListener('click', function(){
+    g2.reset();
 })
